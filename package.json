@@ -1,0 +1,25 @@
+{
+  "name": "cozio",
+  "version": "1.0.0",
+  "description": "A travel-hosting platform inspired by Airbnb, featuring a sleek frontend with HTML/CSS/JS for a user-friendly interface along with Node.js/Express backend. Secure bookings, dynamic search, real-time updates. MongoDB stores listings/profiles/reservations. Empowers travellers &amp; hosts with payments, reviews, personalization.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/satyamlal/Cozio.git"
+  },
+  "keywords": [],
+  "author": "Satyam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/satyamlal/Cozio/issues"
+  },
+  "homepage": "https://github.com/satyamlal/Cozio#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5"
+  }
+}
