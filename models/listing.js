@@ -4,12 +4,19 @@ const Schema = mongoose.Schema;
 
 // Define the schema for a listing
 const listingSchema = new Schema({
-  title: String, // Listing title
-  description: String, // Detailed description
-  image: String, // Image URL or file path
-  price: Number, // Price (e.g., per night)
-  location: String, // Location (e.g., city or address)
-  country: String, // Country of the listing
+  title: {
+    type: String,
+    required: true,
+  },
+  description: String,
+  image: {
+    type: String,
+    default: "../images/default-image-1.jpg",
+    set: (v) => (v === "" ? "../images/default-image-1.jpg" : v),
+  },
+  price: Number,
+  location: String,
+  country: String,
 });
 
 // Export the model to use it in other parts of the app
