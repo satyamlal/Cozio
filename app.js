@@ -32,6 +32,12 @@ app.get("/listings", async (req, res) => {
   res.render("listings/index.ejs", { allListing });
 });
 
+// New Route
+app.get("/listings/new", (req, res) => {
+  // New Form will render here to create a new listing
+  res.render("listings/new.ejs");
+});
+
 // Show Route
 app.get("/listings/:id", async (req, res) => {
   let { id } = req.params;
@@ -39,19 +45,26 @@ app.get("/listings/:id", async (req, res) => {
   res.render("listings/show.ejs", { listing });
 });
 
-// app.get("/testListing", async (req, res) => {
-//   let sampleListing = new Listing({
-//     title: "My new Villa",
-//     description: "Buy this beach",
-//     price: 790,
-//     location: "Playa Venao, Azuero Peninsula",
-//     country: "Panama",
-//   });
+// Create Route
+app.post("/listings", async (req, res) => {
+  // 1st way:
+  // If the {title, description, image, price, location, country} is written like this inside new.ejs file: name="title",
+  // then we can use this (given below):
+  // let { title, description, image, price, location, country } = req.body;
 
-//   await sampleListing.save();
-//   console.log("sample was saved");
-//   res.send("Testing Successfull");
-// });
+  // 2nd and better way:
+  const newListing = new Listing(req.body.listing); // this will create a instance of new listings
+  await newListing.save();
+  res.redirect("/listings");
+});
+
+// Edit Route
+app.get("/listings/:id/edit", async (req, res) => {
+  // Edit form will render here
+  let { id } = req.params;
+  const listing = await Listing.findById(id);
+  res.render("listings/edit.ejs", { listing });
+});
 
 app.listen(3000, () => {
   console.log("Server is listening to port 3000.");
