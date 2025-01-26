@@ -7,14 +7,11 @@
   </head>
   <body>
     <h3>Edit Your Listing</h3>
-    <form>
+    <form method="POST" action="/listings/<%=listing._id%>?_method=PUT">
       <input name="listing[title]" value="<%= listing.title %>" type="text" />
       <br /><br />
-      <textarea
-        name="listing[description]"
-        type="text"
-        value="<%= listing.description %>"
-      >
+      <textarea name="listing[description]">
+        <%= listing.description %>
       </textarea>
       <br /><br />
       <input
@@ -28,17 +25,17 @@
       <br /><br />
       <input
         name="listing[location]"
-        type="text"
         value="<%= listing.location %>"
+        type="text"
       />
       <br /><br />
       <input
         name="listing[country]"
-        type="text"
         value="<%= listing.country %>"
+        type="text"
       />
       <br /><br />
-      <button>Edit</button>
+      <button>Save</button>
     </form>
   </body>
 </html>
