@@ -1,269 +1,295 @@
-const sampleListings = [
+const data = [
   {
-    title: "Plaza Paitilla Inn",
+    title: "Cozy Beachfront Cottage",
     description:
-      "Buy this beachPlaza Paitilla Inn offers panoramic views of Panama Bay and has a lounge bar, outdoor pool and sun terraces. The property also has an equipped business centre and a gym.",
+      "Escape to this charming beachfront cottage for a relaxing getaway. Enjoy stunning ocean views and easy access to the beach.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/146638586.jpg?k=817be757b6c1930793399f62730d274222b664add8284958d574584a3a28ed83&o=&hp=1",
-    price: 7311,
-    location:
-      "Via Italia Punta Paitilla Calle Wiston Churchil, 00000 Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    price: 1500,
+    location: "Malibu",
+    country: "United States",
   },
   {
-    title: "Hilton Panama",
+    title: "Modern Loft in Downtown",
     description:
-      "Rooms at Hilton Panama will provide you with a flat-screen TV, air conditioning and cable channels. Featuring a shower, private bathrooms also come with free toiletries. Some rooms have a sea view.",
+      "Stay in the heart of the city in this stylish loft apartment. Perfect for urban explorers!",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/484123168.jpg?k=f7ef333cfbf75b330e48d3ce2bbe5fa54f29c1e9c55ad4ac704324e8876af0ef&o=",
-    price: 13891,
-    location:
-      "Av. Balboa con calle Aquilino de la Guardia, Bella Vista, 0000 Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    price: 1200,
+    location: "New York City",
+    country: "United States",
   },
   {
-    title: "Hotel Caracas",
+    title: "Mountain Retreat",
     description:
-      "Hotel Caracas offers rooms with air conditioning and a private bathroom in Panama City.",
+      "Unplug and unwind in this peaceful mountain cabin. Surrounded by nature, it's a perfect place to recharge.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/475676512.jpg?k=0c6b48c6fc8559fee7e29d439fe3f5f2565fa429b2e19110e439915b08232abc&o=",
-    price: 3081,
-    location:
-      "Calle 12 Este con Calle C Santa Ana- Frente al parque Santa Ana, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG90ZWxzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    price: 1000,
+    location: "Aspen",
+    country: "United States",
   },
   {
-    title: "Riu Plaza Panamá",
+    title: "Historic Villa in Tuscany",
     description:
-      "Located in the business district, Riu Plaza Panama offers stylish rooms with free Wi-Fi. It features an outdoor pool with hot tub. The Santuario Nacional Corazón de María Church is just 300 metres away.",
-    image: "../images/default-image-1.jpg",
-    price: 9944,
-    location: "Calle 50 con 53 Este, Marbella, Bella Vista, 0000 Panama City",
-    country: "Panama",
+      "Experience the charm of Tuscany in this beautifully restored villa. Explore the rolling hills and vineyards.",
+    image:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWxzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    price: 2500,
+    location: "Florence",
+    country: "Italy",
   },
   {
-    title: "Hotel Milan Panama",
+    title: "Secluded Treehouse Getaway",
     description:
-      "Located 2 km from Metropolitan National Park in Panama City at El Cangrejo, Hotel Milan Panama features a restaurant, bar and free WiFi. Free private parking is available on site.",
+      "Live among the treetops in this unique treehouse retreat. A true nature lover's paradise.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/48247983.jpg?k=e393d5b0b71bb0ab36203e394c35d77bb9ad85faa72c7df8d5cb7d6d7e120ac1&o=",
-    price: 3459,
-    location:
-      "Avenida Eusebio A Morales, El Cangrejo, Bella Vista, 10000 Panama City,",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGhvdGVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    price: 800,
+    location: "Portland",
+    country: "United States",
   },
   {
-    title: "Gran Evenia Panamá Hotel",
+    title: "Beachfront Paradise",
     description:
-      "Gran Evenia Panamá Hotel provides accommodation with an outdoor swimming pool, free private parking, a fitness centre and a garden. Featuring a shared lounge, the 5-star hotel has air-conditioned rooms with free WiFi, each with a private bathroom.",
+      "Step out of your door onto the sandy beach. This beachfront condo offers the ultimate relaxation.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/351256986.jpg?k=d9b210e4b21315fb3c04f23e0cb8efde1553875749e13348f07b3fbada1ea675&o=&hp=1",
-    price: 8993,
-    location:
-      "Calle Eusebio A. Morales Esquina Calle Augusto Samuel Boyd-Urb El Cangrejo, Bella Vista, Panama City,",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGhvdGVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    price: 2000,
+    location: "Cancun",
+    country: "Mexico",
   },
   {
-    title: "The Westin Panama",
+    title: "Rustic Cabin by the Lake",
     description:
-      "The Westin Panama features a fitness center, rooftop pool, and modern, air-conditioned rooms with flat-screen TVs. A full-service spa is available on-site.",
+      "Spend your days fishing and kayaking on the serene lake. This cozy cabin is perfect for outdoor enthusiasts.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/123456789.jpg?k=abc1234567&o=",
-    price: 10250,
-    location:
-      "Avenida Costa del Este, Parque Industrial Costa del Este, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1vdW50YWlufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    price: 900,
+    location: "Lake Tahoe",
+    country: "United States",
   },
   {
-    title: "Hyatt Place Panama City",
+    title: "Luxury Penthouse with City Views",
     description:
-      "Enjoy your stay at Hyatt Place Panama City, offering spacious rooms, an outdoor pool, and a delicious breakfast buffet included with your stay.",
+      "Indulge in luxury living with panoramic city views from this stunning penthouse apartment.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/987654321.jpg?k=def987654&o=",
-    price: 8400,
-    location: "Calle Eusebio A Morales, El Cangrejo, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1622396481328-9b1b78cdd9fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    price: 3500,
+    location: "Los Angeles",
+    country: "United States",
   },
   {
-    title: "Holiday Inn Express Panama",
+    title: "Ski-In/Ski-Out Chalet",
     description:
-      "This modern hotel features a rooftop pool, free WiFi, and complimentary breakfast. Located close to the city's main attractions.",
+      "Hit the slopes right from your doorstep in this ski-in/ski-out chalet in the Swiss Alps.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/456789123.jpg?k=ghi456789&o=",
-    price: 7500,
-    location: "Calle Ricardo Arango y Calle 53E, Obarrio, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1502784444187-359ac186c5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNreSUyMHZhY2F0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    price: 3000,
+    location: "Verbier",
+    country: "Switzerland",
   },
   {
-    title: "Marriott Executive Apartments Panama",
+    title: "Safari Lodge in the Serengeti",
     description:
-      "Spacious apartments with fully equipped kitchens, perfect for long stays. Enjoy an outdoor pool, gym, and excellent dining options.",
+      "Experience the thrill of the wild in a comfortable safari lodge. Witness the Great Migration up close.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567891234.jpg?k=jkl567891&o=",
-    price: 12300,
-    location: "Calle 58 Este, Obarrio, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fG1vdW50YWlufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    price: 4000,
+    location: "Serengeti National Park",
+    country: "Tanzania",
   },
   {
-    title: "Central Hotel Panama",
+    title: "Historic Canal House",
     description:
-      "Located in Casco Viejo, Central Hotel Panama offers elegant rooms, a rooftop pool, and exquisite dining options with colonial charm.",
+      "Stay in a piece of history in this beautifully preserved canal house in Amsterdam's iconic district.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/789012345.jpg?k=mno789012&o=",
-    price: 15500,
-    location: "Plaza de la Independencia, Casco Viejo, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FtcGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    price: 1800,
+    location: "Amsterdam",
+    country: "Netherlands",
   },
   {
-    title: "Hotel El Panama by Faranda",
+    title: "Private Island Retreat",
     description:
-      "This iconic hotel offers a large outdoor pool, a casino, and modern rooms in the heart of Panama City.",
+      "Have an entire island to yourself for a truly exclusive and unforgettable vacation experience.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/654987321.jpg?k=pqr654987&o=",
-    price: 11000,
-    location: "Via España 111, Bella Vista, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1618140052121-39fc6db33972?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bG9kZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    price: 10000,
+    location: "Fiji",
+    country: "Fiji",
   },
   {
-    title: "The Executive Hotel",
+    title: "Charming Cottage in the Cotswolds",
     description:
-      "Experience great hospitality at The Executive Hotel, offering a rooftop terrace, gym, and modern accommodations.",
+      "Escape to the picturesque Cotswolds in this quaint and charming cottage with a thatched roof.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/321654987.jpg?k=stu321654&o=",
-    price: 9000,
-    location: "Avenida Aquilino de la Guardia, Bella Vista, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1602088113235-229c19758e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmVhY2glMjB2YWNhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    price: 1200,
+    location: "Cotswolds",
+    country: "United Kingdom",
   },
   {
-    title: "Global Hotel Panama",
+    title: "Historic Brownstone in Boston",
     description:
-      "Global Hotel Panama features luxurious rooms, an infinity pool, and exceptional city views.",
+      "Step back in time in this elegant historic brownstone located in the heart of Boston.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/123789456.jpg?k=vwx123789&o=",
-    price: 12000,
-    location: "Calle 54 Este y Samuel Lewis, Obarrio, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1533619239233-6280475a633a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNreSUyMHZhY2F0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    price: 2200,
+    location: "Boston",
+    country: "United States",
   },
   {
-    title: "Waldorf Astoria Panama",
+    title: "Beachfront Bungalow in Bali",
     description:
-      "Waldorf Astoria Panama boasts world-class amenities, gourmet dining, and personalized service for an unforgettable stay.",
+      "Relax on the sandy shores of Bali in this beautiful beachfront bungalow with a private pool.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/654123789.jpg?k=xyz654123&o=",
-    price: 18000,
-    location: "Calle Uruguay and Balboa Avenue, Bella Vista, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1602391833977-358a52198938?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    price: 1800,
+    location: "Bali",
+    country: "Indonesia",
   },
   {
-    title: "Hotel Casa Panama",
+    title: "Mountain View Cabin in Banff",
     description:
-      "Hotel Casa Panama combines colonial charm with modern comfort. Enjoy rooftop dining and breathtaking views of the city.",
+      "Enjoy breathtaking mountain views from this cozy cabin in the Canadian Rockies.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/852741963.jpg?k=abc852741&o=",
-    price: 7400,
-    location: "Avenida A, Casco Viejo, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    price: 1500,
+    location: "Banff",
+    country: "Canada",
   },
   {
-    title: "InterContinental Miramar Panama",
+    title: "Art Deco Apartment in Miami",
     description:
-      "This waterfront hotel features an outdoor pool, spa, and exceptional dining options with panoramic views of the bay.",
+      "Step into the glamour of the 1920s in this stylish Art Deco apartment in South Beach.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/951357852.jpg?k=def951357&o=",
-    price: 15800,
-    location: "Avenida Balboa, Panama City",
-    country: "Panama",
+      "https://plus.unsplash.com/premium_photo-1670963964797-942df1804579?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    price: 1600,
+    location: "Miami",
+    country: "United States",
   },
   {
-    title: "Selina Casco Viejo",
+    title: "Tropical Villa in Phuket",
     description:
-      "Selina Casco Viejo offers budget-friendly rooms, a rooftop bar, and vibrant social spaces in the heart of the historic district.",
+      "Escape to a tropical paradise in this luxurious villa with a private infinity pool in Phuket.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/357951258.jpg?k=ghi357951&o=",
-    price: 5300,
-    location: "Avenida B, Casco Viejo, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1470165301023-58dab8118cc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    price: 3000,
+    location: "Phuket",
+    country: "Thailand",
   },
   {
-    title: "Radisson Hotel Panama Canal",
+    title: "Historic Castle in Scotland",
     description:
-      "Stay close to the Panama Canal at Radisson Hotel, offering a pool, comfortable rooms, and family-friendly amenities.",
+      "Live like royalty in this historic castle in the Scottish Highlands. Explore the rugged beauty of the area.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/123456789.jpg?k=jkl123456&o=",
-    price: 9500,
-    location: "Amador Avenue, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1585543805890-6051f7829f98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJlYWNoJTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    price: 4000,
+    location: "Scottish Highlands",
+    country: "United Kingdom",
   },
   {
-    title: "Casa Antigua Panama",
+    title: "Desert Oasis in Dubai",
     description:
-      "Casa Antigua Panama offers boutique accommodations with a rooftop terrace and stunning views of the Casco Viejo neighborhood.",
+      "Experience luxury in the middle of the desert in this opulent oasis in Dubai with a private pool.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/789456123.jpg?k=mno789456&o=",
-    price: 6700,
-    location: "Calle 9 Este, Casco Viejo, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHViYWl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    price: 5000,
+    location: "Dubai",
+    country: "United Arab Emirates",
   },
   {
-    title: "TRYP by Wyndham Panama Centro",
+    title: "Rustic Log Cabin in Montana",
     description:
-      "Enjoy spacious rooms, a rooftop pool, and proximity to top attractions at TRYP by Wyndham Panama Centro.",
+      "Unplug and unwind in this cozy log cabin surrounded by the natural beauty of Montana.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/852963741.jpg?k=pqr852963&o=",
-    price: 8800,
-    location: "Via Veneto, El Cangrejo, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    price: 1100,
+    location: "Montana",
+    country: "United States",
   },
   {
-    title: "Hotel Gatto Blanco",
+    title: "Beachfront Villa in Greece",
     description:
-      "This boutique hotel in Casco Viejo features charming rooms and a rooftop bar with panoramic views of the city.",
+      "Enjoy the crystal-clear waters of the Mediterranean in this beautiful beachfront villa on a Greek island.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/456987123.jpg?k=stu456987&o=",
-    price: 7200,
-    location: "Calle 9 Este y Avenida Central, Casco Viejo, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dmlsbGF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    price: 2500,
+    location: "Mykonos",
+    country: "Greece",
   },
   {
-    title: "Sortis Hotel, Spa & Casino",
+    title: "Eco-Friendly Treehouse Retreat",
     description:
-      "Sortis Hotel, Spa & Casino offers luxury accommodations, a full-service spa, and a vibrant casino for entertainment.",
+      "Stay in an eco-friendly treehouse nestled in the forest. It's the perfect escape for nature lovers.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/963852741.jpg?k=vwx963852&o=",
-    price: 14000,
-    location: "Obarrio, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1488462237308-ecaa28b729d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    price: 750,
+    location: "Costa Rica",
+    country: "Costa Rica",
   },
   {
-    title: "Hotel Las Clementinas",
+    title: "Historic Cottage in Charleston",
     description:
-      "Hotel Las Clementinas features elegant suites and a charming courtyard restaurant in the heart of Casco Viejo.",
+      "Experience the charm of historic Charleston in this beautifully restored cottage with a private garden.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/159357852.jpg?k=xyz159357&o=",
-    price: 8700,
-    location: "Avenida B and Calle 11, Casco Viejo, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    price: 1600,
+    location: "Charleston",
+    country: "United States",
   },
   {
-    title: "La Concordia Boutique Hotel",
+    title: "Modern Apartment in Tokyo",
     description:
-      "La Concordia offers luxurious rooms, a rooftop bar, and personalized service in the historic district.",
+      "Explore the vibrant city of Tokyo from this modern and centrally located apartment.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/357951654.jpg?k=abc357951&o=",
-    price: 15300,
-    location: "Avenida Central, Casco Viejo, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    price: 2000,
+    location: "Tokyo",
+    country: "Japan",
   },
   {
-    title: "Hilton Garden Inn Panama",
+    title: "Lakefront Cabin in New Hampshire",
     description:
-      "This hotel offers modern accommodations, a rooftop pool, and convenient access to the city's business district.",
+      "Spend your days by the lake in this cozy cabin in the scenic White Mountains of New Hampshire.",
     image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/123654987.jpg?k=def123654&o=",
-    price: 10200,
-    location: "Calle Eusebio A Morales, El Cangrejo, Panama City",
-    country: "Panama",
+      "https://images.unsplash.com/photo-1578645510447-e20b4311e3ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    price: 1200,
+    location: "New Hampshire",
+    country: "United States",
+  },
+  {
+    title: "Luxury Villa in the Maldives",
+    description:
+      "Indulge in luxury in this overwater villa in the Maldives with stunning views of the Indian Ocean.",
+    image:
+      "https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    price: 6000,
+    location: "Maldives",
+    country: "Maldives",
+  },
+  {
+    title: "Ski Chalet in Aspen",
+    description:
+      "Hit the slopes in style with this luxurious ski chalet in the world-famous Aspen ski resort.",
+    image:
+      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGxha2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    price: 4000,
+    location: "Aspen",
+    country: "United States",
+  },
+  {
+    title: "Secluded Beach House in Costa Rica",
+    description:
+      "Escape to a secluded beach house on the Pacific coast of Costa Rica. Surf, relax, and unwind.",
+    image:
+      "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    price: 1800,
+    location: "Costa Rica",
+    country: "Costa Rica",
   },
 ];
 
-module.exports = { data: sampleListings };
+// module.exports = { data: sampleListings };
+module.exports = data;

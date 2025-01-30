@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
+app.use("/static", express.static("images"));
 
 app.get("/", (req, res) => {
   res.send("Everything is working fine!");
