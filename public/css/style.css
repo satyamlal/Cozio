@@ -94,12 +94,14 @@ body {
   background-color: white;
 }
 
-/* Add New Listing Page */
+/* Add New Listing Page & Edit Page */
 
 .btn-dark {
   padding: 1rem !important;
 }
 
-.add-btn {
+.add-btn,
+.edit-btn {
   background-color: #fe424d !important;
+  border: none !important;
 }
