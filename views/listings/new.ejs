@@ -12,6 +12,8 @@
           class="form-control"
           required
         />
+        <div class="valid-feedback">Title Looks Good!</div>
+        <div class="invalid-feedback">Please enter a Title!</div>
       </div>
 
       <div class="mb-3">
@@ -22,6 +24,8 @@
           class="form-control"
           required
         ></textarea>
+        <div class="valid-feedback">Looks Good!</div>
+        <div class="invalid-feedback">Price enter a short description.</div>
       </div>
 
       <div class="mb-3">
@@ -32,7 +36,6 @@
           placeholder="Enter Image URL/Link"
           type="text"
           class="form-control"
-          required
         />
       </div>
 
@@ -42,10 +45,11 @@
           <input
             name="listing[price]"
             placeholder="eg. ₹1500"
-            type="number"
             class="form-control"
             required
           />
+          <div class="valid-feedback">Good Choice!</div>
+          <div class="invalid-feedback">Price should be valid!</div>
         </div>
 
         <div class="mb-3 col-md-8">
@@ -57,6 +61,8 @@
             class="form-control"
             required
           />
+          <div class="valid-feedback">Oh! That's a beautiful Country.</div>
+          <div class="invalid-feedback">Country Name should be valid!</div>
         </div>
       </div>
 
@@ -69,6 +75,8 @@
           class="form-control"
           required
         />
+        <div class="valid-feedback">Lovely Place!</div>
+        <div class="invalid-feedback">Location should be valid!</div>
       </div>
       <button class="btn btn-dark add-btn mt-3">Add my Listing</button>
     </form>
