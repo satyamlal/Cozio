@@ -5,6 +5,7 @@ const Listing = require("../Cozio/models/listing");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+const wrapAsync = require("./utils/wrapAsync");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/cozio";
 
@@ -52,8 +53,9 @@ app.get("/listings/:id", async (req, res) => {
 });
 
 // Create Route
-app.post("/listings", async (req, res, next) => {
-  try {
+app.post(
+  "/listings",
+  wrapAsync(async (req, res, next) => {
     // 1st way:
     // If the {title, description, image, price, location, country} is written like this inside new.ejs file: name="title",
     // then we can use this (given below):
@@ -63,10 +65,8 @@ app.post("/listings", async (req, res, next) => {
     const newListing = new Listing(req.body.listing); // this will create a instance of new listings
     await newListing.save();
     res.redirect("/listings");
-  } catch (err) {
-    next(err);
-  }
-});
+  })
+);
 
 // Edit Route
 app.get("/listings/:id/edit", async (req, res) => {
