@@ -52,16 +52,20 @@ app.get("/listings/:id", async (req, res) => {
 });
 
 // Create Route
-app.post("/listings", async (req, res) => {
-  // 1st way:
-  // If the {title, description, image, price, location, country} is written like this inside new.ejs file: name="title",
-  // then we can use this (given below):
-  // let { title, description, image, price, location, country } = req.body;
+app.post("/listings", async (req, res, next) => {
+  try {
+    // 1st way:
+    // If the {title, description, image, price, location, country} is written like this inside new.ejs file: name="title",
+    // then we can use this (given below):
+    // let { title, description, image, price, location, country } = req.body;
 
-  // 2nd and better way:
-  const newListing = new Listing(req.body.listing); // this will create a instance of new listings
-  await newListing.save();
-  res.redirect("/listings");
+    // 2nd and better way:
+    const newListing = new Listing(req.body.listing); // this will create a instance of new listings
+    await newListing.save();
+    res.redirect("/listings");
+  } catch (err) {
+    next(err);
+  }
 });
 
 // Edit Route
@@ -76,7 +80,7 @@ app.get("/listings/:id/edit", async (req, res) => {
 app.put("/listings/:id", async (req, res) => {
   let { id } = req.params;
   await Listing.findByIdAndUpdate(id, { ...req.body.listing });
-  res.redirect("/listings");
+  res.redirect(`/listings/${id}`);
 });
 
 // Delete Route
@@ -85,6 +89,10 @@ app.delete("/listings/:id", async (req, res) => {
   let deletedListing = await Listing.findByIdAndDelete(id);
   console.log(deletedListing);
   res.redirect("/listings");
+});
+
+app.use((err, req, res, next) => {
+  res.send("Something went WRONG!");
 });
 
 app.listen(3000, () => {
