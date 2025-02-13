@@ -30,6 +30,7 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 app.use("/static", express.static("images"));
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   res.send("Everything is working fine!");
