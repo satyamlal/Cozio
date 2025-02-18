@@ -11,22 +11,17 @@ const listingSchema = new Schema({
   description: String,
   image: {
     type: String,
-    default: "/images/default-image-1.jpg",
-    get: function (v) {
-      return v && v.trim() !== "" ? v : "/images/default-image-1.jpg";
-    },
-    set: function (v) {
-      return v && v.trim() !== "" ? v : "/images/default-image-1.jpg";
-    },
+    default:
+      "https://images.unsplash.com/photo-1625505826533-5c80aca7d157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdvYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    set: (v) =>
+      v === ""
+        ? "https://images.unsplash.com/photo-1625505826533-5c80aca7d157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdvYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+        : v,
   },
   price: Number,
   location: String,
   country: String,
 });
-
-// Enable getters when converting to JSON or Objects:
-listingSchema.set("toJSON", { getters: true });
-listingSchema.set("toObject", { getters: true });
 
 // Export the model to use it in other parts of the app
 const Listings = mongoose.model("Listing", listingSchema);
