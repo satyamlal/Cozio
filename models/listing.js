@@ -17,6 +17,12 @@ const listingSchema = new Schema({
   price: Number,
   location: String,
   country: String,
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Review",
+    },
+  ],
 });
 
 // Export the model to use it in other parts of the app
