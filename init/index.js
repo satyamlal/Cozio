@@ -26,4 +26,5 @@ const initDB = async () => {
   }
 };
 
+// Database initialized
 initDB();
